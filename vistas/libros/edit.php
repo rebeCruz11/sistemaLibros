@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="fw-bold text-gradient">Editar Libro</h1>
@@ -48,13 +51,20 @@
                     <input type="checkbox" name="disponible" id="disponible" class="form-check-input" <?= $libro->getDisponible() ? 'checked' : ''; ?>>
                     <label for="disponible" class="form-check-label">Disponible</label>
                 </div>
-
+                <div class="form-check mb-3">
+                    <input type="checkbox" name="regenerar_qr" id="regenerar_qr" class="form-check-input">
+                    <label for="regenerar_qr" class="form-check-label">Regenerar código QR</label>
+                </div>
                 <button type="submit" class="btn btn-gradient px-4">Actualizar</button>
             </form>
         </div>
     </div>
 </div>
-
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Agregar Libro";
+include 'vistas/layout.php'; // O layout_cliente.php según el rol
+?>
 <script>
 // Validación Bootstrap
 (() => {

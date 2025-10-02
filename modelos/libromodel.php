@@ -19,13 +19,12 @@ class LibroModel {
     public function __construct() {
         $this->cn = new CNpdo();
     }
-
     public function getAll() {
         $sql = "SELECT * FROM libros";
         $results = $this->cn->consulta($sql);
         $libros = [];
         foreach ($results as $row) {
-            $libros[] = new Libro($row['id_libro'], $row['titulo'], $row['id_autor'], $row['portada'], $row['stock'], $row['disponible']);
+            $libros[] = new Libro($row['id_libro'], $row['titulo'], $row['id_autor'], $row['portada'], $row['stock'], $row['disponible'], $row['qr']);
         }
         return $libros;
     }
@@ -35,33 +34,37 @@ class LibroModel {
         $results = $this->cn->consulta($sql, [$id]);
         if (!empty($results)) {
             $row = $results[0];
-            return new Libro($row['id_libro'], $row['titulo'], $row['id_autor'], $row['portada'], $row['stock'], $row['disponible']);
+            return new Libro($row['id_libro'], $row['titulo'], $row['id_autor'], $row['portada'], $row['stock'], $row['disponible'], $row['qr']);
         }
         return null;
     }
 
     public function insert($libroObj) {
-        $sql = "INSERT INTO libros (titulo, id_autor, portada, stock, disponible) VALUES (?, ?, ?, ?, ?)";
-        return $this->cn->ejecutar($sql, [
-            $libroObj->getTitulo(),
-            $libroObj->getId_autor(),
-            $libroObj->getPortada(),
-            $libroObj->getStock(),
-            $libroObj->getDisponible()
-        ]);
-    }
-
-    public function update($libroObj) {
-        $sql = "UPDATE libros SET titulo = ?, id_autor = ?, portada = ?, stock = ?, disponible = ? WHERE id_libro = ?";
+        $sql = "INSERT INTO libros (titulo, id_autor, portada, stock, disponible, qr) VALUES (?, ?, ?, ?, ?, ?)";
         return $this->cn->ejecutar($sql, [
             $libroObj->getTitulo(),
             $libroObj->getId_autor(),
             $libroObj->getPortada(),
             $libroObj->getStock(),
             $libroObj->getDisponible(),
+            $libroObj->getQr()
+        ]);
+    }
+
+    public function update($libroObj) {
+        $sql = "UPDATE libros SET titulo = ?, id_autor = ?, portada = ?, stock = ?, disponible = ?, qr = ? WHERE id_libro = ?";
+        return $this->cn->ejecutar($sql, [
+            $libroObj->getTitulo(),
+            $libroObj->getId_autor(),
+            $libroObj->getPortada(),
+            $libroObj->getStock(),
+            $libroObj->getDisponible(),
+            $libroObj->getQr(),
             $libroObj->getId_libro()
         ]);
     }
+
+
 
     public function delete($libroObj) {
         $sql = "DELETE FROM libros WHERE id_libro = ?";

@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+<?php
+ob_start();
+echo "<!-- show.php cargado -->";
+?>
+?>
 <div class="container py-5">
     <div class="card shadow-lg border-0">
         <div class="row g-0">
@@ -38,6 +42,14 @@
                         <?= $libro->getDisponible() ? '<span class="badge bg-success">Sí</span>' : '<span class="badge bg-danger">No</span>'; ?>
                     </p>
 
+                    <?php if ($libro->getQr()): ?>
+                        <div class="mt-4">
+                            <strong>QR para ver este libro:</strong><br>
+                            <img src="<?= RUTA . $libro->getQr(); ?>" alt="QR del libro" width="150">
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
                     <div class="mt-4 d-flex gap-2">
                         <a href="<?= RUTA; ?>libro/edit/<?= $libro->getId_libro(); ?>" class="btn btn-warning">
                             <i class="bi bi-pencil-square"></i> Editar
@@ -47,16 +59,21 @@
                            class="btn btn-danger">
                             <i class="bi bi-trash"></i> Eliminar
                         </a>
-                        <a href="<?= RUTA; ?>libro/index" class="btn btn-secondary">
-                            <i class="bi bi-arrow-left"></i> Volver
-                        </a>
                     </div>
+                    <?php endif; ?>
+                    <a href="<?= RUTA; ?>libro/index" class="btn btn-secondary mt-3">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Detalle Libro";
+// No incluyas el layout aquí
+?>
 <!-- 🎨 Estilos -->
 <style>
 .text-gradient {

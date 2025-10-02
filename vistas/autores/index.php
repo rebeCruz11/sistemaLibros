@@ -2,7 +2,9 @@
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<?php
+ob_start();
+?>
 <div class="container py-5">
 
     <?php
@@ -117,7 +119,11 @@
         <ul class="pagination justify-content-center" id="paginacion"></ul>
     </nav>
 </div>
-
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Ver Autor";
+include 'vistas/layout.php'; // O layout_cliente.php según el rol
+?>
 <!-- 🎨 Estilos personalizados -->
 <style>
 i.bi {

@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+<?php
+ob_start();
+?>
 <div class="container py-5">
 
     <?php
@@ -83,6 +85,11 @@
         <ul class="pagination justify-content-center" id="paginacion"></ul>
     </nav>
 </div>
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Ver Categorías";
+include 'vistas/layout.php'; // O layout_cliente.php según el rol
+?>
 
 <!-- 🎨 Estilos personalizados -->
 <style>

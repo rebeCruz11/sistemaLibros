@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="fw-bold text-gradient">Editar Categoría</h1>
@@ -34,7 +37,11 @@
         </div>
     </div>
 </div>
-
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Editar Categoría";
+include 'vistas/layout.php'; // O layout_cliente.php según el rol
+?>
 <script>
 // Validación Bootstrap
 (() => {

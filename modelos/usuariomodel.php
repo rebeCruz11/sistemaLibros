@@ -62,7 +62,6 @@ class UsuarioModel {
 
     public function verificarCredenciales($correo, $contrasena) {
         $usuario = $this->getByCorreo($correo);
-        
         if ($usuario && password_verify($contrasena, $usuario->getContrasena())) {
             return $usuario;
         }
@@ -70,9 +69,7 @@ class UsuarioModel {
     }
 
     public function insert($usuarioObj) {
-        // Hashear la contraseña antes de guardar
         $contrasenaHash = password_hash($usuarioObj->getContrasena(), PASSWORD_DEFAULT);
-        
         $sql = "INSERT INTO usuario (nombre, apellido, correo, contrasena, rol) VALUES (?, ?, ?, ?, ?)";
         return $this->cn->ejecutar($sql, [
             $usuarioObj->getNombre(),
@@ -83,33 +80,15 @@ class UsuarioModel {
         ]);
     }
 
-    public function update($usuarioObj) {
-        $sql = "UPDATE usuario SET nombre = ?, apellido = ?, correo = ?, rol = ? WHERE id_usuario = ?";
-        return $this->cn->ejecutar($sql, [
-            $usuarioObj->getNombre(),
-            $usuarioObj->getApellido(),
-            $usuarioObj->getCorreo(),
-            $usuarioObj->getRol(),
-            $usuarioObj->getId_usuario()
-        ]);
-    }
-
-    public function delete($usuarioObj) {
-        $sql = "DELETE FROM usuario WHERE id_usuario = ?";
-        return $this->cn->ejecutar($sql, [$usuarioObj->getId_usuario()]);
-    }
-
     public function correoExiste($correo, $excluirId = null) {
-        $sql = "SELECT COUNT(*) as count FROM usuario WHERE correo = ?";
+        $sql = "SELECT id_usuario FROM usuario WHERE correo = ?";
         $params = [$correo];
-        
         if ($excluirId) {
             $sql .= " AND id_usuario != ?";
             $params[] = $excluirId;
         }
-        
         $results = $this->cn->consulta($sql, $params);
-        return $results[0]['count'] > 0;
+        return !empty($results);
     }
 }
 ?>

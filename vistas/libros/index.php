@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<?php
+ob_start();
+?>
 <div class="container py-5">
 
     <?php
@@ -143,7 +145,11 @@
         <ul class="pagination justify-content-center" id="paginacion"></ul>
     </nav>
 </div>
-
+<?php
+$contenidoVista = ob_get_clean();
+$titulo = "Agregar Libro";
+include 'vistas/layout.php'; // O layout_cliente.php según el rol
+?>
 <!-- 🎨 Estilos -->
 <style>
 i.bi { font-size: 1.2rem; vertical-align: middle; }

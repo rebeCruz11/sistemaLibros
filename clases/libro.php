@@ -6,15 +6,19 @@ class Libro {
     private $portada;
     private $stock;
     private $disponible;
+    private $qr; // Nuevo campo
 
-    public function __construct($id_libro = null, $titulo = null, $id_autor = null, $portada = null, $stock = 1, $disponible = 1) {
+    public function __construct($id_libro = null, $titulo = null, $id_autor = null, $portada = null, $stock = 1, $disponible = 1, $qr = null) {
         $this->id_libro = $id_libro;
         $this->titulo = $titulo;
         $this->id_autor = $id_autor;
         $this->portada = $portada;
         $this->stock = $stock;
         $this->disponible = $disponible;
+        $this->qr = $qr;
     }
+
+   
 
     public function getId_libro() {
         return $this->id_libro;
@@ -62,6 +66,13 @@ class Libro {
 
     public function setDisponible($disponible) {
         $this->disponible = $disponible;
+    }
+    
+     public function getQr() {
+        return $this->qr;
+    }
+    public function setQr($qr) {
+        $this->qr = $qr;
     }
 }
 ?>
