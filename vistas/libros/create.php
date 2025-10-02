@@ -82,6 +82,21 @@ ob_start();
                     <div class="invalid-feedback">El stock debe ser al menos 1.</div>
                 </div>
 
+                <!-- 💰 Precio -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input 
+                        type="number" 
+                        name="precio" 
+                        id="precio" 
+                        class="form-control shadow-sm" 
+                        value="0.00" 
+                        min="0" 
+                        step="0.01" 
+                        required>
+                    <div class="invalid-feedback">El precio es obligatorio.</div>
+                </div>
+
                 <!-- ✅ Disponible -->
                 <div class="form-check mb-3">
                     <input 

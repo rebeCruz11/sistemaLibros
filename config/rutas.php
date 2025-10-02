@@ -14,6 +14,9 @@ class Contenido {
         'registro' => 'controladores/authcontroller.php',
         "usuario" => "controladores/usuariocontroller.php",
 
+         "tienda" => "controladores/tiendacontroller.php",
+        "carrito" => "controladores/carritocontroller.php",
+
 
     ];    
 

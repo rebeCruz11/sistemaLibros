@@ -53,6 +53,16 @@ class Authcontroller {
                 $_SESSION['usuario_id'] = $usuario->getId_usuario();
                 $_SESSION['usuario_nombre'] = $usuario->getNombre();
                 $_SESSION['usuario_rol'] = $usuario->getRol();
+
+                // Redirigir según la URL almacenada, si existe
+                if (isset($_SESSION['redirigir_a'])) {
+                    $redirigir_a = $_SESSION['redirigir_a'];
+                    unset($_SESSION['redirigir_a']);
+                    header("Location: " . $redirigir_a);
+                    exit();
+                }
+
+                // Si no hay URL almacenada, redirigir a la página principal
                 header("Location: " . RUTA);
                 exit();
             } else {
@@ -62,6 +72,7 @@ class Authcontroller {
         $_SESSION['error_login'] = implode("<br>", $errores);
         $this->mostrarLogin();
     }
+
 
     private function procesarRegistro() {
         $nombre = trim($_POST['nombre'] ?? '');

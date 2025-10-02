@@ -47,6 +47,11 @@ ob_start();
                     <input type="number" name="stock" id="stock" value="<?= $libro->getStock(); ?>" min="1" class="form-control shadow-sm">
                 </div>
 
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" name="precio" id="precio" value="<?= $libro->getPrecio(); ?>" class="form-control shadow-sm" step="0.01" min="0" required>
+                </div>
+
                 <div class="form-check mb-3">
                     <input type="checkbox" name="disponible" id="disponible" class="form-check-input" <?= $libro->getDisponible() ? 'checked' : ''; ?>>
                     <label for="disponible" class="form-check-label">Disponible</label>
@@ -62,7 +67,7 @@ ob_start();
 </div>
 <?php
 $contenidoVista = ob_get_clean();
-$titulo = "Agregar Libro";
+$titulo = "Editar Libro";
 include 'vistas/layout.php'; // O layout_cliente.php según el rol
 ?>
 <script>

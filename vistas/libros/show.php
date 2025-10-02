@@ -3,7 +3,6 @@
 ob_start();
 echo "<!-- show.php cargado -->";
 ?>
-?>
 <div class="container py-5">
     <div class="card shadow-lg border-0">
         <div class="row g-0">
@@ -41,7 +40,10 @@ echo "<!-- show.php cargado -->";
                         <strong>Disponible:</strong> 
                         <?= $libro->getDisponible() ? '<span class="badge bg-success">Sí</span>' : '<span class="badge bg-danger">No</span>'; ?>
                     </p>
-
+                     <!-- Precio del libro -->
+                    <p class="mb-3">
+                        <strong>Precio:</strong> $<?= number_format($libro->getPrecio(), 2); ?>
+                    </p>
                     <?php if ($libro->getQr()): ?>
                         <div class="mt-4">
                             <strong>QR para ver este libro:</strong><br>

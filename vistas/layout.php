@@ -41,7 +41,7 @@
     </header>
     <main>
         <div class="container mt-4">
-            <?= $contenidoVista ?? '' ?>
+            <?= $contenidoVista ?? '' ?> <!-- Aquí se insertará el contenido del controlador -->
         </div>
     </main>
     <footer></footer>

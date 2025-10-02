@@ -99,6 +99,7 @@ ob_start();
                         <th>Portada</th>
                         <th>Stock</th>
                         <th>Disponible</th>
+                        <th>Precio</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -117,6 +118,7 @@ ob_start();
                         </td>
                         <td><?= $libro['stock']; ?></td>
                         <td><?= $libro['disponible'] ? 'Sí' : 'No'; ?></td>
+                        <td>$<?= number_format($libro['precio'], 2); ?></td> <!-- Aquí agregamos el precio -->
                         <td>
                             <a href="<?= RUTA; ?>libro/show/<?= $libro['id_libro']; ?>" class="btn btn-info">
                                 <i class="bi bi-eye-fill"></i></i>

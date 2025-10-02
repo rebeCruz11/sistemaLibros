@@ -1,4 +1,7 @@
 <?php
+// Asegúrate de incluir el archivo helpers/auth.php
+require_once 'helpers/auth.php';
+
 ob_start();
 ?>
 <div class="text-center mt-5">
