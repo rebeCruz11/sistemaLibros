@@ -9,6 +9,8 @@ class Contenido {
         "detalleVenta" => "controladores/detalleVentacontroller.php",
         "venta" => "controladores/ventacontroller.php",
         "usuario" => "controladores/usuariocontroller.php",
+        'auth' => 'controladores/authcontroller.php',
+
 
     ];    
 
