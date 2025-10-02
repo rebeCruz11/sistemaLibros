@@ -28,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link active" href="<?= RUTA;?>libro">Libro</a></li>
                         <li class="nav-item"><a class="nav-link active" href="<?= RUTA;?>libroCategoria">Libro-Categoría</a></li>
                         <li class="nav-item"><a class="nav-link active" href="<?= RUTA;?>usuario/crearAdmin">Crear Administrador</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="<?= RUTA; ?>reportes">📊 Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="<?= RUTA; ?>reportes/index">📊 Reportes</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">

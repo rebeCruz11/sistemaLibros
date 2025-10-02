@@ -1,0 +1,14 @@
+# Ignorar la carpeta vendor (donde se almacenan las dependencias de Composer)
+vendor/
+
+# Ignorar el archivo composer.lock si no deseas compartir las versiones exactas
+composer.lock
+
+# Ignorar el archivo de caché de Composer (opcional)
+composer.phar
+
+# Ignorar cualquier archivo temporal generado por Composer
+*.tar
+*.gz
+*.tgz
+*.zip
