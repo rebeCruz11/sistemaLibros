@@ -13,7 +13,7 @@ class Contenido {
         'login' => 'controladores/authcontroller.php',
         'registro' => 'controladores/authcontroller.php',
         "usuario" => "controladores/usuariocontroller.php",
-
+        "reportes" => "controladores/reportescontroller.php",
          "tienda" => "controladores/tiendacontroller.php",
         "carrito" => "controladores/carritocontroller.php",
 
