@@ -6,6 +6,9 @@ class Contenido {
         "categoria" => "controladores/categoriacontroller.php",
         "libroCategoria" => "controladores/libroCategoriacontroller.php",
         "autor" => "controladores/autorcontroller.php",
+        "detalleVenta" => "controladores/detalleVentacontroller.php",
+        "venta" => "controladores/ventacontroller.php",
+        "usuario" => "controladores/usuariocontroller.php",
 
     ];    
 
