@@ -26,6 +26,16 @@ class CarritoController {
         include 'vistas/carrito/index.php'; // Mostrar la vista del carrito
     }
 
+    // Generar factura PDF de una venta
+    public function facturaPDF($idVenta) {
+        requireLogin(RUTA . 'carrito/facturaPDF/' . $idVenta);
+        requireRole(['usuario','admin']);
+
+        require_once __DIR__ . '/../reportes/factura_pdf.php';
+        generarFacturaPDF((int)$idVenta);
+    }
+
+
     // Agregar un libro al carrito
     public function agregar($id) {
         requireLogin(RUTA.'tienda');  // Requiere login

@@ -19,7 +19,7 @@ ob_start();
                 <label for="contrasena" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="contrasena" name="contrasena" required>
             </div>
-            <button type="submit" class="btn btn-login mb-3">Iniciar Sesión</button>
+            <button type="submit" class="btn bg-primary btn-login mb-3">Iniciar Sesión</button>
         </form>
         <div class="text-center">
             <small>¿No tienes cuenta? <a href="<?= RUTA; ?>auth/registro">Regístrate aquí</a></small>

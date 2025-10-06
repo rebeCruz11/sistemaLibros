@@ -3,6 +3,11 @@
     <h1 class="text-gradient fw-bold mb-4">¡Gracias por tu compra!</h1>
     <p>Tu compra ha sido procesada exitosamente. El ID de tu venta es: <strong><?= $ventaId; ?></strong></p>
     <a href="<?= RUTA; ?>tienda" class="btn btn-gradient">Volver al catálogo</a>
+    <a href="<?= RUTA ?>carrito/facturaPDF/<?= $ventaId ?>" class="btn btn-primary btn-sm">
+        Descargar Factura
+    </a>
+
+
 </div>
 <?php
 $contenidoVista = ob_get_clean();

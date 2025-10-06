@@ -1,5 +1,5 @@
 <?php
-define("RUTA", "http://192.168.1.9/Lab1P2_2022CP602_2022HZ651/");
+define("RUTA", "http://172.18.246.188/sistemalibros/");
 require_once "config/rutas.php";
 $contenido = new Contenido();
 

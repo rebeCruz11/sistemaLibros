@@ -49,7 +49,7 @@ ob_start();
                 <label for="confirmar_contrasena" class="form-label">Confirmar Contraseña</label>
                 <input type="password" name="confirmar_contrasena" id="confirmar_contrasena" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-register mb-3">Registrarse</button>
+            <button type="submit" class="btn bg-primary btn-register mb-3">Registrarse</button>
         </form>
         <div class="text-center">
             <small>¿Ya tienes cuenta? <a href="<?= RUTA; ?>">Inicia sesión aquí</a></small>
